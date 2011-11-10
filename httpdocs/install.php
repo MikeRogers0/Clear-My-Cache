@@ -28,24 +28,24 @@ $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
 
 // Install the database structure - TODO improve database.
 echo '<li>Building database Structure</li>';
-/*$db->exec('
-CREATE TABLE '.$db->tableName('browsers').' (
-  `listing_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `user_ID` int(11) NOT NULL,
-  `category_ID` int(11) NOT NULL,
-  `status` enum(\'sale\',\'rent\') DEFAULT NULL,
-  `price` int(11) NOT NULL,
-  `bedrooms` int(11) NOT NULL,
-  `squarefeet` int(11) NOT NULL,
-  `baths` int(11) NOT NULL,
-  `description` text NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `modified` date NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`listing_ID`)
-) ENGINE=INNODB;
-');*/
+$db->exec('
+
+CREATE TABLE  '.$db->tableName('browsers').' (
+`ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`name` VARCHAR( 255 ) NOT NULL ,
+`majorVersion` INT NOT NULL ,
+`howTo` TEXT NOT NULL ,
+`lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
+
+CREATE TABLE  '.$db->tableName('os').' (
+`ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`name` VARCHAR( 255 ) NOT NULL ,
+`majorVersion` INT NOT NULL ,
+`howTo` TEXT NOT NULL ,
+`lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
+');
 
 echo '<li>Adding database contents</li>';
 

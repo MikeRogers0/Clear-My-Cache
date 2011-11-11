@@ -33,8 +33,11 @@ $db->exec('
 CREATE TABLE  '.$db->tableName('browsers').' (
 `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `name` VARCHAR( 255 ) NOT NULL ,
+`os` VARCHAR( 255 ) NOT NULL ,
 `majorVersion` INT NOT NULL ,
 `howTo` TEXT NOT NULL ,
+`worked` INT NOT NULL ,
+`failed` INT NOT NULL ,
 `lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
 
@@ -43,6 +46,8 @@ CREATE TABLE  '.$db->tableName('os').' (
 `name` VARCHAR( 255 ) NOT NULL ,
 `majorVersion` INT NOT NULL ,
 `howTo` TEXT NOT NULL ,
+`worked` INT NOT NULL ,
+`failed` INT NOT NULL ,
 `lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
 ');

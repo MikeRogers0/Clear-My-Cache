@@ -47,6 +47,8 @@ CREATE TABLE  '.$db->tableName('os').' (
 ) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
 ');
 
+// todo - add it works/failed support.
+
 echo '<li>Adding database contents</li>';
 
 

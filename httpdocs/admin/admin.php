@@ -15,7 +15,6 @@ $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING ); // Turn on db erro
 
 // Set up the classes.
 $notices = new notices();
-$addForm = new form();
 
 ?>
 <!doctype html>
@@ -27,17 +26,18 @@ $addForm = new form();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
+  <title>Clear my Cache - Admin</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="admin.css">
   <!-- end CSS-->
 
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <script src="/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
 <body>
@@ -54,69 +54,23 @@ $addForm = new form();
     	<li><a href="?mode=add-platform">Add Platform</a></li>
     </ul>
     
-    <h2>Platform Overview</h2>
-    
-    	<table>
-    		<thead>
-    			<tr>
-    				<th>Platform</td>
-    				<th>Last Updated</th>
-    				<th>Edit</th>
-    				<th>Delete</th>
-    			</tr>
-    		</thead>
-    		<tbody>
-    			<?php
-	    		// Do a quick query to pull up the data.
-	    		$platforms = platform::getPlatforms();
-	    		
-	    		foreach($platforms as $platform){ ?>
-    			 <tr>
-    			 	<td><?php echo $platform->Platform; ?></td>
-    			 	<td><?php echo $platform->Platform_lastUpdated; ?></td>
-    			 	<td><?php echo $platform->editURL(); ?></td>
-    			 	<td><?php echo $platform->deleteURL(); ?></td>
-    			 </tr>
-				<?php	} ?>
-    		</tbody>
-    	</table>
-    
-    <h2>Browser Overview</h2>
-    
-    	<table>
-    		<thead>
-    			<tr>
-    				<th>Browser</td>
-    				<th>Major Version</th>
-    				<th>Platform</th>
-    				<th>Last Updated</th>
-    				<th>Edit</th>
-    				<th>Delete</th>
-    			</tr>
-    		</thead>
-    		<tbody>
-    
-    	<?php
-    		// Do a quick query to pull up the data.
-    		$browsers = browser::getBrowsers();
-    		
-    		foreach($browsers as $browser){ ?>
-    			 <tr>
-    			 	<td><?php echo $browser->Browser; ?></td>
-    			 	<td><?php echo $browser->Browser_MajorVer; ?></td>
-    			 	<td><?php echo $browser->Platform; ?></td>
-    			 	<td><?php echo $browser->Browser_lastUpdated; ?></td>
-    			 	<td><?php echo $browser->editURL(); ?></td>
-    			 	<td><?php echo $browser->deleteURL(); ?></td>
-    			 </tr>
-		<?php	} ?>
-    </tbody>
-    </table>
-    
-    <h2>Extra Notes</h2>
-    <ul>
-    	<li>If browser major version == 0, it means default. This will be used if a more accurate browser can't be found.</li>
-    </ul>
+	<?php
+	$mode = null;
+	if(isset($_GET['mode'])){
+		$mode = $_GET['mode'];
+	}
+	switch($mode){
+		case 'add-platform': include(admin_inc.'/modes/add-platform.view.php'); break;
+		case 'edit-platform': include(admin_inc.'/modes/edit-platform.view.php'); break;
+		case 'delete-platform': include(admin_inc.'/modes/delete-platform.view.php'); break;
+		case 'add-browser': include(admin_inc.'/modes/add-browser.view.php'); break;
+		case 'edit-browser': include(admin_inc.'/modes/edit-browser.view.php'); break;
+		case 'delete-browser': include(admin_inc.'/modes/delete-browser.view.php'); break;
+		default: include(admin_inc.'/modes/overview.view.php');
+	}
+	
+	?>
+   
     </div>
     <footer>
     
@@ -129,17 +83,9 @@ $addForm = new form();
 
 
   <!-- scripts concatenated and minified via ant build script-->
-  <script defer src="js/plugins.js"></script>
-  <script defer src="js/script.js"></script>
+  <script defer src="/js/plugins.js"></script>
+  <script defer src="/js/script.js"></script>
   <!-- end scripts-->
-
-
-  <script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
 
 
   <!--[if lt IE 7 ]>

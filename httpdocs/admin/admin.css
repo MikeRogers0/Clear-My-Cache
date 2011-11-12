@@ -1,0 +1,17 @@
+form{
+	width: 400px;
+}
+label{
+	display:block;
+	margin:15px 0;
+}
+input,select{
+	padding: 3px 5px;
+	float:right;
+	width: 200px;
+}
+textarea{
+	display: block;
+	width: 95%;
+	margin: 10px 0 0 auto;
+}

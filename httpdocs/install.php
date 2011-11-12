@@ -30,35 +30,50 @@ $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
 echo '<li>Building database Structure</li>';
 $db->exec('
 
-CREATE TABLE  '.$db->tableName('browsers').' (
+CREATE TABLE  '.$db->tableName('browser').' (
 `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-`ua_name` VARCHAR( 255 ) NOT NULL ,
-`name` VARCHAR( 255 ) NOT NULL ,
-`ua_os` VARCHAR( 255 ) NOT NULL ,
-`os` VARCHAR( 255 ) NOT NULL ,
-`majorVersion` INT NOT NULL ,
-`howTo` TEXT NOT NULL ,
-`worked` INT NOT NULL ,
-`failed` INT NOT NULL ,
-`lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+`Browser` VARCHAR( 255 ) NOT NULL ,
+`Platform` VARCHAR( 255 ) NOT NULL ,
+`Browser_MajorVer` INT NOT NULL DEFAULT 0,
+`Browser_HowTo` TEXT NOT NULL ,
+`Browser_worked` INT NOT NULL DEFAULT 0,
+`Browser_failed` INT NOT NULL DEFAULT 0,
+`Browser_lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
 
-CREATE TABLE  '.$db->tableName('os').' (
+CREATE TABLE  '.$db->tableName('platform').' (
 `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-`ua_name` VARCHAR( 255 ) NOT NULL ,
-`name` VARCHAR( 255 ) NOT NULL ,
-`majorVersion` INT NOT NULL ,
-`howTo` TEXT NOT NULL ,
-`worked` INT NOT NULL ,
-`failed` INT NOT NULL ,
-`lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+`Platform` VARCHAR( 255 ) NOT NULL ,
+`Platform_HowTo` TEXT NOT NULL ,
+`Platform_worked` INT NOT NULL DEFAULT 0 ,
+`Platform_failed` INT NOT NULL DEFAULT 0,
+`Platform_lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
 ');
 
-// todo - add it works/failed support.
-
-echo '<li>Adding database contents</li>';
-
+echo '<li>Adding database contents</li>'; // This is a quick dump of main stuff. No how-to right now.
+	echo '<ul>';
+	echo '<li>Adding Platforms</li>';
+	$platforms = array('Windows', 'Mac');
+	
+	foreach($platforms as $platform){
+		$values = array('Platform' => $platform);	
+		$db->prepare('INSERT INTO '.$db->tableName('platform').' '.$db->insert($values).';')
+			->execute($db->bind($values));
+	}
+	
+	echo '<li>Adding Browsers</li>';
+	$browsers = array('Chrome', 'Firefox', 'Opera', 'IE', 'Safari');
+	
+	foreach($browsers as $browser){
+		foreach($platforms as $platform){
+			$values = array('Platform' => $platform, 'Browser'=>$browser);	
+			$db->prepare('INSERT INTO '.$db->tableName('browser').' '.$db->insert($values).';')
+				->execute($db->bind($values));
+		}
+	}
+	
+	echo '</ul>';
 
 echo '</ul>';
 echo '<p>Install finished. </p>

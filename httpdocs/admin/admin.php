@@ -1,6 +1,9 @@
 <?php
+// TODO - Secure up this page.
+
 // Get the pages variables set up
-require('../inc/init.inc.php');
+require('../../inc/init.inc.php');
+require('../../inc/admin/admin.inc.php');
 
 // Connect to the database, if it fails leta assume the database isn't installed
 try {
@@ -10,14 +13,9 @@ try {
 }
 $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING ); // Turn on db errors, so we can debug.
 
-// If the user wants to see a different browser.
-$data = null;
-if( isset($_GET['Browser']) && isset($_GET['majorVer']) && isset($_GET['Platform']) ){
-	$data = array('Browser'=>$_GET['Browser'], 'majorVer' => $_GET['majorVer'], 'Platform' => $_GET['Platform']);
-}
-
-// Get the users agen & pull the howto.
-$user_agent = new user_agent($data);
+// Set up the classes.
+$notices = new notices();
+$addForm = new form();
 
 ?>
 <!doctype html>
@@ -50,11 +48,78 @@ $user_agent = new user_agent($data);
     </header>
     <div id="main" role="main">
     
-    	<?php echo var_dump($user_agent->db_info); ?>
+    <ul>
+    	<li><a href="?">Overview</a></li>
+    	<li><a href="?mode=add-browser">Add Browser</a></li>
+    	<li><a href="?mode=add-platform">Add Platform</a></li>
+    </ul>
     
+    <h2>Platform Overview</h2>
+    
+    	<table>
+    		<thead>
+    			<tr>
+    				<th>Platform</td>
+    				<th>Last Updated</th>
+    				<th>Edit</th>
+    				<th>Delete</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<?php
+	    		// Do a quick query to pull up the data.
+	    		$platforms = platform::getPlatforms();
+	    		
+	    		foreach($platforms as $platform){ ?>
+    			 <tr>
+    			 	<td><?php echo $platform->Platform; ?></td>
+    			 	<td><?php echo $platform->Platform_lastUpdated; ?></td>
+    			 	<td><?php echo $platform->editURL(); ?></td>
+    			 	<td><?php echo $platform->deleteURL(); ?></td>
+    			 </tr>
+				<?php	} ?>
+    		</tbody>
+    	</table>
+    
+    <h2>Browser Overview</h2>
+    
+    	<table>
+    		<thead>
+    			<tr>
+    				<th>Browser</td>
+    				<th>Major Version</th>
+    				<th>Platform</th>
+    				<th>Last Updated</th>
+    				<th>Edit</th>
+    				<th>Delete</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    
+    	<?php
+    		// Do a quick query to pull up the data.
+    		$browsers = browser::getBrowsers();
+    		
+    		foreach($browsers as $browser){ ?>
+    			 <tr>
+    			 	<td><?php echo $browser->Browser; ?></td>
+    			 	<td><?php echo $browser->Browser_MajorVer; ?></td>
+    			 	<td><?php echo $browser->Platform; ?></td>
+    			 	<td><?php echo $browser->Browser_lastUpdated; ?></td>
+    			 	<td><?php echo $browser->editURL(); ?></td>
+    			 	<td><?php echo $browser->deleteURL(); ?></td>
+    			 </tr>
+		<?php	} ?>
+    </tbody>
+    </table>
+    
+    <h2>Extra Notes</h2>
+    <ul>
+    	<li>If browser major version == 0, it means default. This will be used if a more accurate browser can't be found.</li>
+    </ul>
     </div>
     <footer>
-
+    
     </footer>
   </div> <!--! end of #container -->
 

@@ -12,11 +12,15 @@ define('db_database_salt', 'j6fm');
 define('db_username', 'root');
 define('db_password', 'root');
 
+// Cache information
+define('cache_dir', '../cache');
+
 // Start Sessions
 //session_name();
 //session_start();
 
 // Include all the required files.
+require('browscap.class.php');
 require('user_agent.class.php');
 require('db.class.php');
 ?>

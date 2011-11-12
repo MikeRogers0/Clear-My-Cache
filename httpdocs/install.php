@@ -32,7 +32,9 @@ $db->exec('
 
 CREATE TABLE  '.$db->tableName('browsers').' (
 `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`ua_name` VARCHAR( 255 ) NOT NULL ,
 `name` VARCHAR( 255 ) NOT NULL ,
+`ua_os` VARCHAR( 255 ) NOT NULL ,
 `os` VARCHAR( 255 ) NOT NULL ,
 `majorVersion` INT NOT NULL ,
 `howTo` TEXT NOT NULL ,
@@ -43,6 +45,7 @@ CREATE TABLE  '.$db->tableName('browsers').' (
 
 CREATE TABLE  '.$db->tableName('os').' (
 `ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`ua_name` VARCHAR( 255 ) NOT NULL ,
 `name` VARCHAR( 255 ) NOT NULL ,
 `majorVersion` INT NOT NULL ,
 `howTo` TEXT NOT NULL ,

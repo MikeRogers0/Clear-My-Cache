@@ -9,6 +9,18 @@ class browser{
 		return $query->fetchAll(PDO::FETCH_CLASS, 'browser');
 	}
 	
+	public static function get(){
+	
+	}
+	
+	public static function add(){
+		
+	}
+	
+	public static function update(){}
+	
+	public static function delete(){}
+	
 	public function editURL(){
 		return '<a href="?mode=edit-browser&id='.$this->ID.'">Edit</a>';
 	}

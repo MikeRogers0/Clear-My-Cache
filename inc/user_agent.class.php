@@ -49,10 +49,18 @@ class user_agent{
 		global $db;
 		// Do a DB lookup.
 		
-		$query = $db->prepare('SELECT * FROM '.$db->tableName('browser').' RIGHT JOIN  '.$db->tableName('platform').' ON  '.$db->tableName('browser').'.`Platform` = '.$db->tableName('platform').'.`Platform`
-		WHERE '.$db->tableName('browser').'.`Browser` = :Browser AND ('.$db->tableName('browser').'.`Browser_MajorVer` = :Browser_MajorVer OR '.$db->tableName('browser').'.`Browser_MajorVer` = 0) AND '.$db->tableName('browser').'.`Platform` = :Platform   ORDER BY '.$db->tableName('browser').'.`Browser_MajorVer` DESC LIMIT 0,1;');
-		$query->execute(array(':Browser' => $this->ua['Browser'], ':Browser_MajorVer' => (int) $this->ua['MajorVer'], ':Platform'=>$this->ua['Platform']));
-		$result = $query->fetch(PDO::FETCH_ASSOC);
+		$query = $db->prepare('SELECT * FROM '.$db->tableName('browser').' 
+			RIGHT JOIN  '.$db->tableName('platform').' ON  '.$db->tableName('browser').'.`Platform_ID` = '.$db->tableName('platform').'.`Platform_ID`
+			WHERE '.$db->tableName('browser').'.`Browser_Name` = :Browser 
+			AND '.$db->tableName('browser').'.`Browser_MajorVer` <= :Browser_MajorVer
+			AND '.$db->tableName('platform').'.`Platform_Name` = :Platform_Name
+			ORDER BY '.$db->tableName('browser').'.`Browser_MajorVer`
+			DESC;');
+		$query->execute(array(':Browser' => $this->ua['Browser'], ':Browser_MajorVer' => (int) $this->ua['MajorVer'], ':Platform_Name'=>$this->ua['Platform']));
+		
+		$result = $query->fetchAll(PDO::FETCH_ASSOC);
+		
+		var_dump($result);
 		
 		// If we have a result
 		if($result){

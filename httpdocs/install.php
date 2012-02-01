@@ -31,9 +31,9 @@ echo '<li>Building database Structure</li>';
 $db->exec('
 
 CREATE TABLE  '.$db->tableName('browser').' (
-`ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-`Browser` VARCHAR( 255 ) NOT NULL ,
-`Platform` VARCHAR( 255 ) NOT NULL ,
+`Browser_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`Browser_Name` VARCHAR( 255 ) NOT NULL ,
+`Platform_ID` int NOT NULL DEFAULT 0,
 `Browser_MajorVer` INT NOT NULL DEFAULT 0,
 `Browser_HowTo` TEXT NOT NULL ,
 `Browser_worked` INT NOT NULL DEFAULT 0,
@@ -42,8 +42,8 @@ CREATE TABLE  '.$db->tableName('browser').' (
 ) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
 
 CREATE TABLE  '.$db->tableName('platform').' (
-`ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-`Platform` VARCHAR( 255 ) NOT NULL ,
+`Platform_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`Platform_Name` VARCHAR( 255 ) NOT NULL ,
 `Platform_HowTo` TEXT NOT NULL ,
 `Platform_worked` INT NOT NULL DEFAULT 0 ,
 `Platform_failed` INT NOT NULL DEFAULT 0,
@@ -54,10 +54,10 @@ CREATE TABLE  '.$db->tableName('platform').' (
 echo '<li>Adding database contents</li>'; // This is a quick dump of main stuff. No how-to right now.
 	echo '<ul>';
 	echo '<li>Adding Platforms</li>';
-	$platforms = array('Windows', 'Mac');
+	$platforms = array(1=>'Windows', 2=>'Mac');
 	
 	foreach($platforms as $platform){
-		$values = array('Platform' => $platform);	
+		$values = array('Platform_Name' => $platform);	
 		$db->prepare('INSERT INTO '.$db->tableName('platform').' '.$db->insert($values).';')
 			->execute($db->bind($values));
 	}
@@ -65,9 +65,9 @@ echo '<li>Adding database contents</li>'; // This is a quick dump of main stuff.
 	echo '<li>Adding Browsers</li>';
 	$browsers = array('Chrome', 'Firefox', 'Opera', 'IE', 'Safari');
 	
-	foreach($browsers as $browser){
-		foreach($platforms as $platform){
-			$values = array('Platform' => $platform, 'Browser'=>$browser);	
+	foreach($browsers as $browser_name){
+		foreach($platforms as $platform_id => $platform_name){
+			$values = array('Platform_ID' => $platform_id, 'Browser_Name'=>$browser_name);	
 			$db->prepare('INSERT INTO '.$db->tableName('browser').' '.$db->insert($values).';')
 				->execute($db->bind($values));
 		}

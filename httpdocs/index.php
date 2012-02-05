@@ -19,68 +19,139 @@ if( isset($_GET['Browser']) && isset($_GET['majorVer']) && isset($_GET['Platform
 // Get the users agen & pull the howto.
 $user_agent = new user_agent($data);
 
+//var_dump($user_agent->ua, $user_agent->db_info);
+
+
+	$good = array(
+		"Get in!",
+		"Winning!",
+		"Awesomes!",
+		"Good choice!",
+		"Nice!",
+		"Fancy Pants!",
+		"Check you Out!",
+		"Ooh La La!",
+	);
+
+	$bad = array(
+		"Yikes!",
+		"Bad choice!",
+	);
+
+	$os = strtolower(isset($_GET["os"]) ? $_GET["os"] : $user_agent->ua['Platform']); # Lower case, no formatting.
+	$browser_vendor = strtolower(isset($_GET["browser"]) ? $_GET["browser"] : $user_agent->ua['Browser']); # Lower case, no formatting.
+	$browser_version = isset($_GET["version"]) ? $_GET["version"] : 'v'.$user_agent->ua['MajorVer']; # Used on body class, needs to be prefixed with a 'v' otherwise invalid (can't start with a number)
+
+	$friendly_browser_version = str_replace(array("v", "-"),
+											array("", "."),
+											$browser_version);
 ?>
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<title>Clear My Cache</title>
 
-  <title></title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- end CSS-->
-
-  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/assets/css/main.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/wide.css" media="screen and (min-width:1281px)" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/thin.css" media="screen and (max-width:960px)" />
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
-
-<body>
-
-  <div id="container">
-    <header>
-
-    </header>
-    <div id="main" role="main">
-    
-    	<?php echo var_dump($user_agent->db_info); ?>
-    
-    </div>
-    <footer>
-
-    </footer>
-  </div> <!--! end of #container -->
-
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-
-
-  <!-- scripts concatenated and minified via ant build script-->
-  <script defer src="js/plugins.js"></script>
-  <script defer src="js/script.js"></script>
-  <!-- end scripts-->
-
-
-  <script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
-
-
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
-  
+<body id="home" class="<?php echo $os; ?> <?php echo $browser_vendor; ?> <?php echo $browser_version; ?>">
+	<header id="mast">
+		<div class="sleeve">
+			<h1><a href="/" id="logo"><span>Clear My Cache</span></a></h1>
+		</div>
+	</header>
+	<section id="what_am_i">
+		<hgroup>
+			<h2>Hello <?php echo ucfirst($os); ?> User!</h2>
+			<h3>You&rsquo;re using <?php echo $browser_vendor; ?> <?php echo $friendly_browser_version; ?>, <?php echo $good[rand(0, count($good)-1)] ?></h3>
+		</hgroup>
+		<p class="update">However, Firefox 21 is out now! <a href="#">Get it here</a></p>
+	</section>
+	<section id="how_to_clear">
+		<div class="sleeve">
+			<h2>Here&rsquo;s how you clear your cache for &hellip;</h2>
+			<section id="your_headers">
+				<header class="browser">
+					<img src="/assets/img/browsers/<?php echo $browser_vendor; ?>.png" alt="" />
+					<h3><span>Your browser, </span><?php echo $browser_vendor; ?> <?php echo $friendly_browser_version; ?></h3>
+					<a href="#your_browser" class="skip">Skip to your Browser instructions</a>
+					<p class="view"><a href="#">View User Agent String</a></p>
+				</header>
+				<header class="os">
+					<img src="/assets/img/os/<?php echo $os; ?>.png" alt="" />
+					<h3><span>Your Operating System, </span><?php echo ucfirst($os); ?></h3>
+					<a href="#your_os" class="skip">Skip to your Operating System instructions</a>
+				</header>
+			</section>
+			<section class="how_tos">
+				<section id="your_browser" class="how_to">
+					<?php echo $user_agent->db_info['Browser_HowTo']; ?>
+					<!--<ul>
+						<li class="step">
+							<h4>Step 1.</h4>
+							<div class="details">
+								<p>
+									Open Firefox<br />
+									Press <strong>cmd + shift + backspace</strong> together
+								</p>
+							</div>
+						</li>
+						<li class="step">
+							<h4>Step 2.</h4>
+							<div class="details">
+								<p>
+									Select time range to <strong>Everything</strong> or desired time range. We also recommend selecting Cookies. And click <strong>Clear Now</strong>.
+								</p>
+								<p>	
+									<img src="/assets/img/firefox.clear.history.png" alt="Image showing the clear cache/history modal window" />
+								</p>
+							</div>
+						</li>
+						<li class="step">
+							<h4>Step 3.</h4>
+							<div class="details">
+								<p>Restart Firefox.</p>
+							</div>
+						</li>
+					</ul>-->
+				</section>
+				<section id="your_os" class="how_to">
+					<?php echo $user_agent->db_info['Platform_HowTo']; ?>
+					<!--<ul>
+						<li class="step">
+							<h4>Step 1.</h4>
+							<div class="details">
+								<p>
+									Open Firefox<br />
+									Press <strong>cmd + shift + backspace</strong> together
+								</p>
+							</div>
+						</li>
+						<li class="step">
+							<h4>Step 2.</h4>
+							<div class="details">
+								<p>
+									Select time range to <strong>Everything</strong> or desired time range. We also recommend selecting Cookies. And click <strong>Clear Now</strong>.
+								</p>
+							</div>
+						</li>
+					</ul>-->
+				</section>
+			</section>
+		</div>
+	</section>
+	<footer id="footer">
+		<img src="/assets/img/bgs/<?php echo $browser_vendor; ?>.png" alt="<?php echo ucfirst($browser_vendor); ?>" id="browser_image" />
+		<div class="sleeve">
+			<p>Clear My Cache is a free service brought to you by <a href="http://twitter.com/rogem002/">Mike</a>, <a href="#">Dan</a> &amp; <a href="http://twitter.com/Lletnek/">Tom</a>.</p>
+			<p>Made with passion and awesome on <img src="/assets/img/apple.logo.png" alt="Apple gear" /> <a href="http://events.apple.com.edgesuite.net/10oiuhfvojb23/event/index.html">Thank you Steve</a></p>
+			<small>All logos are copyright of their respective owners. Clear My Cache accept no liability for any damages or losses incurred while following the advice on this website.</small>
+		</div>
+	</footer>
 </body>
 </html>

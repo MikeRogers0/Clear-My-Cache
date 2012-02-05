@@ -57,7 +57,25 @@ echo '<li>Adding database contents</li>'; // This is a quick dump of main stuff.
 	$platforms = array(1=>'Windows', 2=>'Mac');
 	
 	foreach($platforms as $platform){
-		$values = array('Platform_Name' => $platform);	
+		$values = array('Platform_Name' => $platform, 'Platform_HowTo' => '<ul>
+						<li class="step">
+							<h4>Step 1.</h4>
+							<div class="details">
+								<p>
+									Open Terminal<br />
+									Press <strong>cmd + shift + backspace</strong> together
+								</p>
+							</div>
+						</li>
+						<li class="step">
+							<h4>Step 2.</h4>
+							<div class="details">
+								<p>
+									Select time range to <strong>Everything</strong> or desired time range. We also recommend selecting Cookies. And click <strong>Clear Now</strong>.
+								</p>
+							</div>
+						</li>
+					</ul>');	
 		$db->prepare('INSERT INTO '.$db->tableName('platform').' '.$db->insert($values).';')
 			->execute($db->bind($values));
 	}
@@ -67,7 +85,34 @@ echo '<li>Adding database contents</li>'; // This is a quick dump of main stuff.
 	
 	foreach($browsers as $browser_name){
 		foreach($platforms as $platform_id => $platform_name){
-			$values = array('Platform_ID' => $platform_id, 'Browser_Name'=>$browser_name);	
+			$values = array('Platform_ID' => $platform_id, 'Browser_Name'=>$browser_name, 'Browser_HowTo' => '<ul>
+						<li class="step">
+							<h4>Step 1.</h4>
+							<div class="details">
+								<p>
+									Open Firefox<br />
+									Press <strong>cmd + shift + backspace</strong> together
+								</p>
+							</div>
+						</li>
+						<li class="step">
+							<h4>Step 2.</h4>
+							<div class="details">
+								<p>
+									Select time range to <strong>Everything</strong> or desired time range. We also recommend selecting Cookies. And click <strong>Clear Now</strong>.
+								</p>
+								<p>	
+									<img src="/assets/img/firefox.clear.history.png" alt="Image showing the clear cache/history modal window" />
+								</p>
+							</div>
+						</li>
+						<li class="step">
+							<h4>Step 3.</h4>
+							<div class="details">
+								<p>Restart Firefox.</p>
+							</div>
+						</li>
+					</ul>');	
 			$db->prepare('INSERT INTO '.$db->tableName('browser').' '.$db->insert($values).';')
 				->execute($db->bind($values));
 		}

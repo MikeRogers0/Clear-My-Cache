@@ -29,6 +29,13 @@ class form{
 
 		// Set a hidden field to figure out if this form has been posted.
 		$this->setInputField(array('name'=>$this->form_attr['name'], 'type'=>'hidden', 'value'=>'true'));
+		
+		// quickly stripslashes from post data:
+		if(is_array($_POST)){
+			foreach($_POST as $key => $value){
+				$_POST[$key] = stripslashes($value);
+			}
+		}
 	}
 	
 	public function setInputField($attr, $cuteName='', $label=false){
@@ -43,7 +50,7 @@ class form{
 	}
 	
 	public function setSelectField($attr, $cuteName='', $label=false){
-		$defaults = array('name'=>'field-name');
+		$defaults = array('name'=>'field-name', 'value'=>'');
 		$attr = array_merge($defaults, parseAStr($attr));
 		$name = $attr['name'];
 		
@@ -107,7 +114,7 @@ class form{
 					$notices->add('"'.$value->cuteName.'" field must be a number');
 					$this->setInputValue($value->attr['name']);
 					continue;
-				}elseif($value->attr['type'] === 'email' && filter_var($this->getInputValue($value->attr['name']), FILTER_VALIDATE_EMAIL) === false){
+				}elseif($value->attr['type'] === 'email' && $this->validateEmail($this->getInputValue($value->attr['name'])) === false){
 					$notices->add('"'.$value->cuteName.'" field must be an email');
 					$this->setInputValue($value->attr['name']);
 					continue;
@@ -126,7 +133,6 @@ class form{
 					}
 					$value->options[$this->getInputValue($value->attr['name'])]['selected'] = true;
 				}
-				var_dump($value->options);
 			}
 		}}
 		
@@ -134,6 +140,16 @@ class form{
 			return false;
 		}
 		return true;
+	}
+	
+	public function validateEmail($email){
+		if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+			return false;
+		}
+		
+		// Next check the domain is real.
+		$domain = explode("@", $email, 2);
+		return checkdnsrr($domain[1]); // returns TRUE/FALSE;
 	}
 	
 	public function getInputValue($name){
@@ -186,7 +202,7 @@ class inputField extends form{
 	public function getHTML(){
 		$return = '<input'.parent::getAttrs($this->attr).'/>';
 		if($this->label != false){
-			$return = '<label for="'.$this->attr['name'].'">'.$this->cuteName.$return.'</label>';
+			$return = '<label>'.$this->cuteName.$return.'</label>';
 		}
 		return $return;
 	}
@@ -216,10 +232,14 @@ class selectField extends inputField{
 	public $options;
 
 	public function addOption($option, $displayName, $selected=false){
+		if($this->attr['value'] == $option){
+			$selected = true;
+		}
 		$this->options[$option] = array('displayName'=>$displayName, 'selected'=>$selected);
 	}
 
 	public function getHTML(){
+		unset($this->attr['value']); // Remove the value attr
 		
 		$return = '<select'.parent::getAttrs($this->attr).'>';
 		

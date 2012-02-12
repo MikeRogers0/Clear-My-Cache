@@ -5,8 +5,7 @@
     			<tr>
     				<th>Platform</td>
     				<th>Last Updated</th>
-    				<th>Edit</th>
-    				<th>Delete</th>
+    				<th class="manage">Edit</th>
     			</tr>
     		</thead>
     		<tbody>
@@ -16,10 +15,9 @@
 	    		
 	    		foreach($platforms as $platform){ ?>
     			 <tr>
-    			 	<td><?php echo $platform->Platform; ?></td>
+    			 	<td><?php echo $platform->Platform_Name; ?></td>
     			 	<td><?php echo $platform->Platform_lastUpdated; ?></td>
     			 	<td><?php echo $platform->editURL(); ?></td>
-    			 	<td><?php echo $platform->deleteURL(); ?></td>
     			 </tr>
 				<?php	} ?>
     		</tbody>
@@ -34,8 +32,7 @@
     				<th>Major Version</th>
     				<th>Platform</th>
     				<th>Last Updated</th>
-    				<th>Edit</th>
-    				<th>Delete</th>
+    				<th class="manage">Edit</th>
     			</tr>
     		</thead>
     		<tbody>
@@ -46,12 +43,11 @@
     		
     		foreach($browsers as $browser){ ?>
     			 <tr>
-    			 	<td><?php echo $browser->Browser; ?></td>
+    			 	<td><?php echo $browser->Browser_Name; ?></td>
     			 	<td><?php echo $browser->Browser_MajorVer; ?></td>
-    			 	<td><?php echo $browser->Platform; ?></td>
+    			 	<td><?php echo $browser->Platform_Name; ?></td>
     			 	<td><?php echo $browser->Browser_lastUpdated; ?></td>
     			 	<td><?php echo $browser->editURL(); ?></td>
-    			 	<td><?php echo $browser->deleteURL(); ?></td>
     			 </tr>
 		<?php	} ?>
     </tbody>

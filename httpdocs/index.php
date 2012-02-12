@@ -91,56 +91,60 @@ $user_agent = new user_agent($data);
 			<section class="how_tos">
 				<section id="your_browser" class="how_to">
 					<?php echo $user_agent->db_info['Browser_HowTo']; ?>
-					<!--<ul>
-						<li class="step">
-							<h4>Step 1.</h4>
-							<div class="details">
-								<p>
-									Open Firefox<br />
-									Press <strong>cmd + shift + backspace</strong> together
-								</p>
-							</div>
-						</li>
-						<li class="step">
-							<h4>Step 2.</h4>
-							<div class="details">
-								<p>
-									Select time range to <strong>Everything</strong> or desired time range. We also recommend selecting Cookies. And click <strong>Clear Now</strong>.
-								</p>
-								<p>	
-									<img src="/assets/img/firefox.clear.history.png" alt="Image showing the clear cache/history modal window" />
-								</p>
-							</div>
-						</li>
-						<li class="step">
-							<h4>Step 3.</h4>
-							<div class="details">
-								<p>Restart Firefox.</p>
-							</div>
-						</li>
-					</ul>-->
+					<!--
+<ul>
+	<li class="step">
+		<h4>Step 1.</h4>
+		<div class="details">
+			<p>
+				Open Firefox<br />
+				Press <strong>cmd + shift + backspace</strong> together
+			</p>
+		</div>
+	</li>
+	<li class="step">
+		<h4>Step 2.</h4>
+		<div class="details">
+			<p>
+				Select time range to <strong>Everything</strong> or desired time range. We also recommend selecting Cookies. And click <strong>Clear Now</strong>.
+			</p>
+			<p>	
+				<img src="/assets/img/firefox.clear.history.png" alt="Image showing the clear cache/history modal window" />
+			</p>
+		</div>
+	</li>
+	<li class="step">
+		<h4>Step 3.</h4>
+		<div class="details">
+			<p>Restart Firefox.</p>
+		</div>
+	</li>
+</ul>
+					-->
 				</section>
 				<section id="your_os" class="how_to">
 					<?php echo $user_agent->db_info['Platform_HowTo']; ?>
-					<!--<ul>
-						<li class="step">
-							<h4>Step 1.</h4>
-							<div class="details">
-								<p>
-									Open Firefox<br />
-									Press <strong>cmd + shift + backspace</strong> together
-								</p>
-							</div>
-						</li>
-						<li class="step">
-							<h4>Step 2.</h4>
-							<div class="details">
-								<p>
-									Select time range to <strong>Everything</strong> or desired time range. We also recommend selecting Cookies. And click <strong>Clear Now</strong>.
-								</p>
-							</div>
-						</li>
-					</ul>-->
+					<!--
+<ul>
+	<li class="step">
+		<h4>Step 1.</h4>
+		<div class="details">
+			<p>
+				Open Firefox<br />
+				Press <strong>cmd + shift + backspace</strong> together
+			</p>
+		</div>
+	</li>
+	<li class="step">
+		<h4>Step 2.</h4>
+		<div class="details">
+			<p>
+				Select time range to <strong>Everything</strong> or desired time range. We also recommend selecting Cookies. And click <strong>Clear Now</strong>.
+			</p>
+		</div>
+	</li>
+</ul>
+					-->
 				</section>
 			</section>
 		</div>

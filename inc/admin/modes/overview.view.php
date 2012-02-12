@@ -5,7 +5,7 @@
     			<tr>
     				<th>Platform</td>
     				<th>Last Updated</th>
-    				<th class="manage">Edit</th>
+    				<th class="manage">&nbsp;</th>
     			</tr>
     		</thead>
     		<tbody>
@@ -32,7 +32,7 @@
     				<th>Major Version</th>
     				<th>Platform</th>
     				<th>Last Updated</th>
-    				<th class="manage">Edit</th>
+    				<th class="manage">&nbsp;</th>
     			</tr>
     		</thead>
     		<tbody>

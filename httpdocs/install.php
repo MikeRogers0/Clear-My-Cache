@@ -8,7 +8,7 @@
 <?php # this page installs the database.
 
 // Get the pages variables set up
-require('../inc/init.inc.php');
+require('inc/init.inc.php');
 
 echo '<h1>Installing</h1><ul>';
 
@@ -29,34 +29,33 @@ $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING );
 // Install the database structure - TODO improve database.
 echo '<li>Building database Structure</li>';
 $db->exec('
-
 CREATE TABLE  '.$db->tableName('browser').' (
 `Browser_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-`Browser_Name` VARCHAR( 255 ) NOT NULL ,
+`Browser_Name` VARCHAR( 255 ) NOT NULL,
 `Platform_ID` int NOT NULL DEFAULT 0,
 `Browser_MajorVer` INT NOT NULL DEFAULT 0,
-`Browser_HowTo` TEXT NOT NULL ,
+`Browser_HowTo` TEXT NOT NULL,
 `Browser_worked` INT NOT NULL DEFAULT 0,
 `Browser_failed` INT NOT NULL DEFAULT 0,
 `Browser_lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
+) ENGINE = INNODB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE  '.$db->tableName('platform').' (
 `Platform_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-`Platform_Name` VARCHAR( 255 ) NOT NULL ,
-`Platform_HowTo` TEXT NOT NULL ,
+`Platform_Name` VARCHAR( 255 ) NOT NULL,
+`Platform_HowTo` TEXT NOT NULL,
 `Platform_worked` INT NOT NULL DEFAULT 0 ,
 `Platform_failed` INT NOT NULL DEFAULT 0,
 `Platform_lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE = INNODB CHARACTER SET utf16 COLLATE utf16_swedish_ci;
+) ENGINE = INNODB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 ');
 
 echo '<li>Adding database contents</li>'; // This is a quick dump of main stuff. No how-to right now.
 	echo '<ul>';
 	echo '<li>Adding Platforms</li>';
-	$platforms = array(1=>'Windows', 2=>'Mac');
+	$platforms = array('1'=>'Mac', '2'=>'Windows');
 	
-	foreach($platforms as $platform){
+	foreach($platforms as $key => $platform){
 		$values = array('Platform_Name' => $platform, 'Platform_HowTo' => '<ul>
 						<li class="step">
 							<h4>Step 1.</h4>
@@ -78,6 +77,7 @@ echo '<li>Adding database contents</li>'; // This is a quick dump of main stuff.
 					</ul>');	
 		$db->prepare('INSERT INTO '.$db->tableName('platform').' '.$db->insert($values).';')
 			->execute($db->bind($values));
+			
 	}
 	
 	echo '<li>Adding Browsers</li>';

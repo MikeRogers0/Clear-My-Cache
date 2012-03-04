@@ -1,6 +1,6 @@
 <?php
 // Get the pages variables set up
-require('../inc/init.inc.php');
+require('inc/init.inc.php');
 
 // Connect to the database, if it fails leta assume the database isn't installed
 try {
@@ -152,7 +152,7 @@ $user_agent = new user_agent($data);
 	<footer id="footer">
 		<img src="/assets/img/bgs/<?php echo $browser_vendor; ?>.png" alt="<?php echo ucfirst($browser_vendor); ?>" id="browser_image" />
 		<div class="sleeve">
-			<p>Clear My Cache is a free service brought to you by <a href="http://twitter.com/rogem002/">Mike</a>, <a href="#">Dan</a> &amp; <a href="http://twitter.com/Lletnek/">Tom</a>.</p>
+			<p>Clear My Cache is a free service brought to you by <a href="http://twitter.com/rogem002/">Mike</a>, <a href="http://www.twitter.com/_danedwards/">Dan</a> &amp; <a href="http://twitter.com/Lletnek/">Tom</a>.</p>
 			<p>Made with passion and awesome on <img src="/assets/img/apple.logo.png" alt="Apple gear" /> <a href="http://events.apple.com.edgesuite.net/10oiuhfvojb23/event/index.html">Thank you Steve</a></p>
 			<small>All logos are copyright of their respective owners. Clear My Cache accept no liability for any damages or losses incurred while following the advice on this website.</small>
 		</div>

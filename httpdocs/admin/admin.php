@@ -2,8 +2,8 @@
 // TODO - Secure up this page.
 
 // Get the pages variables set up
-require('../../inc/init.inc.php');
-require('../../inc/admin/admin.inc.php');
+require('../inc/init.inc.php');
+require('../inc/admin/admin.inc.php');
 
 // Connect to the database, if it fails leta assume the database isn't installed
 try {

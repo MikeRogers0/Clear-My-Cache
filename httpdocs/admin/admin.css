@@ -60,3 +60,12 @@ table td, table th{
 table th.manage{
 	width: 50px;
 }
+
+#notices{
+	background: #fff;
+	overflow: hidden;
+}
+#notices li{
+	float: left;
+	padding: 5px 0;
+}

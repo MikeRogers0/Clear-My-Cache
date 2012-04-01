@@ -12,7 +12,7 @@ class user_agent{
 		);
 		
 		// List of different platforms converting them to main OS.
-		$this->platforms = array('MacOSX'=>'Mac', 'MacPPC'=>'Mac', 'Linux'=>'Linux');
+		$this->platforms = array('MacOSX'=>'Mac', 'MacPPC'=>'Mac', 'Linux'=>'Linux', 'iPhone OSX'=>'iOS', 'Android' => 'Android');
 		
 		// Set the browser / OS info and set how to.
 		$this->setData($data)->setHowTo();

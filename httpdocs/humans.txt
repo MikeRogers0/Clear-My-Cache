@@ -3,17 +3,32 @@
 
 
 /* TEAM */
-  <your title>: <your name>
-  Site: 
-  Twitter: 
-  Location: 
+  Backend Developer: Mike Rogers
+  Site: http://www.fullondesign.co.uk/
+  Twitter: MikeRogers0
+  Location: United Kingdom
+  
+  Designer: Daniel Edwards
+  Site: http://danedwards.me/
+  Twitter: _danedwards
+  Location: United Kingdom
+  
+  Frontend Developer: Tom Kentell
+  Site: http://www.meatfreedesign.co.uk/
+  Twitter: Lletnek
+  Location: United Kingdom
+  
+  Content: Harry Wisemen
+  Site: http://harry-wiseman.com/
+  Twitter: HarryWiseman
+  Location: United Kingdom
 
 /* THANKS */
   Names (& URL): 
 
 /* SITE */
   Standards: HTML5, CSS3
-  Components: Modernizr, jQuery
+  Components: Modernizr
   Software:
   
 

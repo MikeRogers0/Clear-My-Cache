@@ -19,6 +19,9 @@ define('cache_dir', '/Users/MikeRogers/Sites/clearmycache.me/cache');
 //session_name();
 //session_start();
 
+// Set the Timezone
+date_default_timezone_set('Europe/London');
+
 // Include all the required files.
 require('browscap.class.php');
 require('user_agent.class.php');

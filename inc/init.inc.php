@@ -10,10 +10,10 @@ define('db_host', 'localhost');
 define('db_database', 'cmcdotme');
 define('db_database_salt', 'j6fm');
 define('db_username', 'root');
-define('db_password', 'root');
+define('db_password', '');
 
 // Cache information
-define('cache_dir', '/Users/Rogem002/Dropbox/Git-Repos/Clear-My-Cache/httpdocs/cache');
+define('cache_dir', '/Users/MikeRogers/Sites/clearmycache.me/cache');
 
 // Start Sessions
 //session_name();

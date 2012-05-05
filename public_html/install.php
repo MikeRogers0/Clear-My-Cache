@@ -8,7 +8,7 @@
 <?php # this page installs the database.
 
 // Get the pages variables set up
-require('inc/init.inc.php');
+require('../inc/init.inc.php');
 
 echo '<h1>Installing</h1><ul>';
 

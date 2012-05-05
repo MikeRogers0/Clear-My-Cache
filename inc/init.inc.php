@@ -7,13 +7,13 @@ error_reporting(-1);
 
 // Define Database Variables
 define('db_host', 'localhost');
-define('db_database', 'cmcdotme');
-define('db_database_salt', 'j6fm');
-define('db_username', 'root');
-define('db_password', '');
+define('db_database', 'clsmgash_cmcdb');
+define('db_database_salt', 'f54b');
+define('db_username', 'clsmgash_cmcdb');
+define('db_password', 'm0%fqKJw+Ocg');
 
 // Cache information
-define('cache_dir', '/Users/MikeRogers/Sites/clearmycache.me/cache');
+define('cache_dir', '/home/clsmgash/cache');
 
 // Start Sessions
 //session_name();

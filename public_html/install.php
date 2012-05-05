@@ -18,7 +18,7 @@ echo '<li>Clearing up sessions.</li>';
 echo '<li>Connecting &amp; creating the Database</li>';
 
 // Connect to the database
-$db = new db('mysql:host='.db_host.';',db_username,db_password); 
+$db = new db('mysql:host='.db_host.';',db_username,db_password, array(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true)); 
 
 // Create the Database
 $db->createDatabase(db_database);
@@ -39,7 +39,9 @@ CREATE TABLE  '.$db->tableName('browser').' (
 `Browser_failed` INT NOT NULL DEFAULT 0,
 `Browser_lastUpdated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = INNODB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+');
 
+$db->exec('
 CREATE TABLE  '.$db->tableName('platform').' (
 `Platform_ID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `Platform_Name` VARCHAR( 255 ) NOT NULL,

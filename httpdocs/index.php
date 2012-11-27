@@ -71,7 +71,13 @@ $user_agent = new user_agent($data);
 			<h2>Hello <?php echo ucfirst($os); ?> User!</h2>
 			<h3>You&rsquo;re using <?php echo $browser_vendor; ?> <?php echo $friendly_browser_version; ?>, <?php echo $good[rand(0, count($good)-1)] ?></h3>
 		</hgroup>
-		<p class="update">However, Firefox 21 is out now! <a href="#">Get it here</a></p>
+		<?php
+		if($browser_vendor != 'firefox'){?>
+			<p class="update">However, the new Firefox is out now! <a href="http://www.mozilla.org/en-US/">Get it here</a></p>
+		<?php }else { ?>
+			<p class="update">However, the new Chrome is out now! <a href="www.google.com/chrome">Get it here</a></p>
+		<?php } ?>
+		
 	</section>
 	<section id="how_to_clear">
 		<div class="sleeve">

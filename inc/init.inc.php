@@ -13,7 +13,7 @@ define('db_username', 'clsmgash_cmcdb');
 define('db_password', 'm0%fqKJw+Ocg');
 
 // Cache information
-define('cache_dir', '/home/clsmgash/cache');
+define('cache_dir', '../cache');
 
 // Start Sessions
 //session_name();

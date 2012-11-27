@@ -6,6 +6,7 @@ require('../inc/init.inc.php');
 try {
 	$db = new db('mysql:host='.db_host.';dbname='.db_database,db_username,db_password);
 }catch (Exception $e) {
+	var_dump($e);
     die('<h1>Need to Install</h1><p>The database is not installed. <a href="install.php">Visit the installer to install it.</a></p>');
 }
 $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING ); // Turn on db errors, so we can debug.
@@ -78,7 +79,7 @@ $user_agent = new user_agent($data);
 			<section id="your_headers">
 				<header class="browser">
 					<img src="/assets/img/browsers/<?php echo $browser_vendor; ?>.png" alt="" />
-					<h3><span>Your browser, </span><?php echo $browser_vendor; ?> <?php echo $friendly_browser_version; ?></h3>
+					<h3><span>Your browser, </span><?php echo $browser_vendor; echo $friendly_browser_version != 0? $friendly_browser_version : ''; ?></h3>
 					<a href="#your_browser" class="skip">Skip to your Browser instructions</a>
 					<p class="view"><a href="#">View User Agent String</a></p>
 				</header>
@@ -91,7 +92,7 @@ $user_agent = new user_agent($data);
 			<section class="how_tos">
 				<section id="your_browser" class="how_to">
 					<?php echo $user_agent->db_info['Browser_HowTo']; ?>
-					<!--
+					<?php /*
 <ul>
 	<li class="step">
 		<h4>Step 1.</h4>
@@ -119,12 +120,11 @@ $user_agent = new user_agent($data);
 			<p>Restart Firefox.</p>
 		</div>
 	</li>
-</ul>
-					-->
+</ul> */ ?>
 				</section>
 				<section id="your_os" class="how_to">
 					<?php echo $user_agent->db_info['Platform_HowTo']; ?>
-					<!--
+					<?php /*
 <ul>
 	<li class="step">
 		<h4>Step 1.</h4>
@@ -144,7 +144,7 @@ $user_agent = new user_agent($data);
 		</div>
 	</li>
 </ul>
-					-->
+					*/ ?>
 				</section>
 			</section>
 		</div>

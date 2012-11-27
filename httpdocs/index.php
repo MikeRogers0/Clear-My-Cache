@@ -69,7 +69,7 @@ $user_agent = new user_agent($data);
 	<section id="what_am_i">
 		<hgroup>
 			<h2>Hello <?php echo ucfirst($os); ?> User!</h2>
-			<h3>You&rsquo;re using <?php echo $browser_vendor; ?> <?php echo $friendly_browser_version; ?>, <?php echo $good[rand(0, count($good)-1)] ?></h3>
+			<h3>You&rsquo;re using <?php echo $browser_vendor; echo $friendly_browser_version != 0 ? ' '.$friendly_browser_version : ''; ?>, <?php echo $good[rand(0, count($good)-1)] ?></h3>
 		</hgroup>
 		<?php
 		if($browser_vendor != 'firefox'){?>
@@ -85,7 +85,7 @@ $user_agent = new user_agent($data);
 			<section id="your_headers">
 				<header class="browser">
 					<img src="/assets/img/browsers/<?php echo $browser_vendor; ?>.png" alt="" />
-					<h3><span>Your browser, </span><?php echo $browser_vendor; echo $friendly_browser_version != 0? $friendly_browser_version : ''; ?></h3>
+					<h3><span>Your browser, </span><?php echo $browser_vendor; echo $friendly_browser_version != 0? ' '.$friendly_browser_version : ''; ?></h3>
 					<a href="#your_browser" class="skip">Skip to your Browser instructions</a>
 					<p class="view"><a href="#">View User Agent String</a></p>
 				</header>

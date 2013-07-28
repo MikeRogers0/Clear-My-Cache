@@ -1,0 +1,33 @@
+<h1>Listing cmcplatforms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Slug</th>
+      <th>Version</th>
+      <th>Howto</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cmcplatforms.each do |cmcplatform| %>
+      <tr>
+        <td><%= cmcplatform.name %></td>
+        <td><%= cmcplatform.slug %></td>
+        <td><%= cmcplatform.version %></td>
+        <td><%= cmcplatform.howto %></td>
+        <td><%= link_to 'Show', cmcplatform %></td>
+        <td><%= link_to 'Edit', edit_cmcplatform_path(cmcplatform) %></td>
+        <td><%= link_to 'Destroy', cmcplatform, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cmcplatform', new_cmcplatform_path %>

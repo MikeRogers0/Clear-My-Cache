@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cmcplatform.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @cmcplatform.slug %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @cmcplatform.version %>
+</p>
+
+<p>
+  <strong>Howto:</strong>
+  <%= @cmcplatform.howto %>
+</p>
+
+<%= link_to 'Edit', edit_cmcplatform_path(@cmcplatform) %> |
+<%= link_to 'Back', cmcplatforms_path %>

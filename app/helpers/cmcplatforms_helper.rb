@@ -1,0 +1,2 @@
+module CmcplatformsHelper
+end

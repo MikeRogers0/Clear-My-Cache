@@ -1,0 +1,14 @@
+<%= simple_form_for(@cmcplatform) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.input :slug %>
+    <%= f.input :version %>
+    <%= f.input :howto %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cmcbrowser.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @cmcbrowser.slug %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @cmcbrowser.version %>
+</p>
+
+<p>
+  <strong>Howto:</strong>
+  <%= @cmcbrowser.howto %>
+</p>
+
+<p>
+  <strong>Cmcplatform:</strong>
+  <%= @cmcbrowser.cmcplatform.name %>
+</p>
+
+<%= link_to 'Edit', edit_cmcbrowser_path(@cmcbrowser) %> |
+<%= link_to 'Back', cmcbrowsers_path %>

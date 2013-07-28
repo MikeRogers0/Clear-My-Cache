@@ -1,0 +1,35 @@
+<h1>Listing cmcbrowsers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Slug</th>
+      <th>Version</th>
+      <th>Howto</th>
+      <th>Cmcplatform</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cmcbrowsers.each do |cmcbrowser| %>
+      <tr>
+        <td><%= cmcbrowser.name %></td>
+        <td><%= cmcbrowser.slug %></td>
+        <td><%= cmcbrowser.version %></td>
+        <td><%= cmcbrowser.howto %></td>
+        <td><%= cmcbrowser.cmcplatform.name %></td>
+        <td><%= link_to 'Show', cmcbrowser %></td>
+        <td><%= link_to 'Edit', edit_cmcbrowser_path(cmcbrowser) %></td>
+        <td><%= link_to 'Destroy', cmcbrowser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cmcbrowser', new_cmcbrowser_path %>

@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  slug: MyString
+  slug: mystring
   version: 1
   howto: MyText
   cmcplatform_id: 1
 
 two:
   name: MyString
-  slug: MyString
+  slug: mystring
   version: 1
   howto: MyText
   cmcplatform_id: 1

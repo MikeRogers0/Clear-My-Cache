@@ -37,10 +37,15 @@ class CmcbrowserTest < ActiveSupport::TestCase
   end
 
   test "version must be an integer above 0" do
-    assert false
-  end
+    browser = cmcbrowsers(:one).clone
 
-  test "All attributes apart from platform must not be pull (Platform is optional)" do
-    assert false
+    browser.name = 'integer test'
+    browser.slug = 'integer-test'
+    browser.version = -1
+    assert !browser.save
+    assert !browser.errors[:version].empty?
+
+    browser.version = 3
+    assert browser.save
   end
 end

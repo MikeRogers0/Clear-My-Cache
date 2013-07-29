@@ -35,4 +35,12 @@ class CmcbrowserTest < ActiveSupport::TestCase
   	browser.name = "Google Chrome"
   	assert browser.save
   end
+
+  test "version must be an integer above 0" do
+    assert false
+  end
+
+  test "All attributes apart from platform must not be pull (Platform is optional)" do
+    assert false
+  end
 end

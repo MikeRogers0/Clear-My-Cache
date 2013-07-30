@@ -1,7 +1,11 @@
 ClearMyCache::Application.routes.draw do
-  resources :cmcbrowsers
 
+  resources :cmcbrowsers
   resources :cmcplatforms
+
+  root 'cmcinstruction#index'
+  get ':cmcplatform_slug/:cmcplatform_version/:cmcbrowser_slug/:cmcbrowser_version' => 'cmcinstruction#display', :as => 'display'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -8,5 +8,8 @@ class CmcinstructionController < ApplicationController
   end
 
   def display
+  	cmc_browser = Cmcbrowser.where("slug >= :slug", {slug: params[:cmcbrowser_slug]}).order("ABS(version - #{params[:cmcbrowser_version]} ) ASC").limit(1);
+
+  	@cmc_browser = cmc_browser.first
   end
 end

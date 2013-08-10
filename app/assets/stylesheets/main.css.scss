@@ -1,14 +1,14 @@
 html { font-size:100%; } /* Fix font size for IE */
-body { background:url(../img/bg.png) repeat-x; margin:0; padding:0; color:#333; font:.625em/20px Helvetica, Arial, sans-serif; }
+body { background:url(/assets/img/bg.png) repeat-x; margin:0; padding:0; color:#333; font:.625em/20px Helvetica, Arial, sans-serif; }
 
 /* Font */
 @font-face {
 	font-family:'BebasNeue';
-	src:url('../fonts/BebasNeue.eot');
-	src:url('../fonts/BebasNeue.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/BebasNeue.woff') format('woff'),
-		url('../fonts/BebasNeue.ttf') format('truetype'),
-		url('../fonts/BebasNeue.svg#BebasNeueRegular') format('svg');
+	src:url('/assets/fonts/BebasNeue.eot');
+	src:url('/assets/fonts/BebasNeue.eot?#iefix') format('embedded-opentype'),
+		url('/assets/fonts/BebasNeue.woff') format('woff'),
+		url('/assets/fonts/BebasNeue.ttf') format('truetype'),
+		url('/assets/fonts/BebasNeue.svg#BebasNeueRegular') format('svg');
 	font-weight:normal;
 	font-style:normal;
 }
@@ -34,18 +34,18 @@ a:hover, a:focus { text-decoration:underline; }
 .skip { position:absolute; left:-9999px; }
 
 /* Masthead */
-#mast { background:url(../img/strips/firefox.png) repeat-x; min-height:50px; }
+#mast { background:url(/assets/img/strips/firefox.png) repeat-x; min-height:50px; }
 #mast .sleeve { width:940px; margin:0 auto; }
 
-.firefox #mast { background-image:url(../img/strips/firefox.png); }
-.internet.explorer #mast { background-image:url(../img/strips/internet%20explorer.png); }
-.chrome #mast { background-image:url(../img/strips/chrome.png); }
-.safari #mast { background-image:url(../img/strips/safari.png); }
-.opera #mast { background-image:url(../img/strips/opera.png); }
+.firefox #mast { background-image:url(/assets/img/strips/firefox.png); }
+.internet.explorer #mast { background-image:url(/assets/img/strips/internet%20explorer.png); }
+.chrome #mast { background-image:url(/assets/img/strips/chrome.png); }
+.safari #mast { background-image:url(/assets/img/strips/safari.png); }
+.opera #mast { background-image:url(/assets/img/strips/opera.png); }
 
 #mast h1 { margin:0; padding:0; font-size:1em; line-height:1; }
 
-#logo { position:absolute; left:40px; top:0; background:#F7CC4A url(../img/logo.png) no-repeat 50% 20px; display:block; width:140px; height:50px; text-align:center; color:#FFF; font:normal 2.2em/26px BebasNeue, Impact, Helvetica, Arial, sans-serif; }
+#logo { position:absolute; left:40px; top:0; background:#F7CC4A url(/assets/img/logo.png) no-repeat 50% 20px; display:block; width:140px; height:50px; text-align:center; color:#FFF; font:normal 2.2em/26px BebasNeue, Impact, Helvetica, Arial, sans-serif; }
 #logo span { text-indent:-9999px; display:block; }
 
 .firefox #logo { background-color:#F7CC4A; }
@@ -69,18 +69,18 @@ a:hover, a:focus { text-decoration:underline; }
 .opera #footer .sleeve { background:#A4181B; }
 
 /* What am I ??? */
-#what_am_i { width:820px; margin:0 auto; padding:0 0 35px; background:url(../img/dot.png) repeat-x 0 100%; text-align:center; }
+#what_am_i { width:820px; margin:0 auto; padding:0 0 35px; background:url(/assets/img/dot.png) repeat-x 0 100%; text-align:center; }
 #what_am_i h2 { font:normal 8.5em/1 BebasNeue, Impact, Helvetica, Arial, sans-serif; text-transform:uppercase; padding:0 0 8px; }
 #what_am_i h3 { font:normal 4.5em/1 BebasNeue, Impact, Helvetica, Arial, sans-serif; text-transform:uppercase; padding:0 0 16px; }
 #what_am_i .update { font:italic 1.6em/1 Georgia, "Times New Roman", serif; }
 
 /* How to Clear */
-#how_to_clear { background:url(../img/your.text.png) no-repeat 50% 47px; }
-#how_to_clear .sleeve { width:820px; margin:0 auto; padding:0 0 3px; background:url(../img/dot.png) repeat-x 0 100%; }
-#how_to_clear h2 { font:italic 2em/1 Georgia, "Times New Roman", serif; text-align:center; padding:25px 0 34px; background:url(../img/dot.png) repeat-x 0 100%; }
+#how_to_clear { background:url(/assets/img/your.text.png) no-repeat 50% 47px; }
+#how_to_clear .sleeve { width:820px; margin:0 auto; padding:0 0 3px; background:url(/assets/img/dot.png) repeat-x 0 100%; }
+#how_to_clear h2 { font:italic 2em/1 Georgia, "Times New Roman", serif; text-align:center; padding:25px 0 34px; background:url(/assets/img/dot.png) repeat-x 0 100%; }
 
 /* Your Browser/OS */
-#your_headers { background:url(../img/dot.png) repeat-x 0 100%; zoom:1; }
+#your_headers { background:url(/assets/img/dot.png) repeat-x 0 100%; zoom:1; }
 #your_headers:after { content:"."; display:block; clear:both; visibility:hidden; height:0; }
 #your_headers header { margin:9px 0 11px; padding:0 7px; float:left; width:396px; }
 #your_headers img { float:left; margin-right:10px; }
@@ -89,14 +89,14 @@ a:hover, a:focus { text-decoration:underline; }
 #your_headers .view { font-size:1.1em; line-height:1; }
 #your_headers .view a { font-weight:normal; }
 
-#your_headers .browser { background:url(../img/dot.png) repeat-y 100%; }
+#your_headers .browser { background:url(/assets/img/dot.png) repeat-y 100%; }
 #your_headers .os { text-align:right; margin-top:6px; padding-bottom:6px; }
 #your_headers .os img { float:right; margin:0 0 0 10px; }
 .windows #your_headers .os img { padding:4px 0 0; }
 #your_headers .os h3 { padding-top:13px; }
 
 /* Steps */
-.how_tos { background:url(../img/dot.png) repeat-y 407px 0; zoom:1; }
+.how_tos { background:url(/assets/img/dot.png) repeat-y 407px 0; zoom:1; }
 .how_tos:after { content:"."; display:block; clear:both; visibility:hidden; height:0; }
 
 .how_to { float:left; width:50%; border:solid #FFF; border-width:10px 0; padding:0 0 10px; }
@@ -112,6 +112,14 @@ a:hover, a:focus { text-decoration:underline; }
 
 
 
+@media (max-width:960px) {
+	#how_to_clear { background:none; }
+}
 
+
+@media (min-width:1281px) {
+	#mast .sleeve { position:relative; }
+	#logo { left:-140px; }
+}
 
 

@@ -1,3 +1,33 @@
-<h1>Cmcinstruction#display</h1>
-<p>Find me in app/views/cmcinstruction/display.html.erb</p>
-<p>Oh hey, you're using something close to <%= @cmc_browser.name %> <%= @cmc_browser.version %></p>
+<section id="what_am_i">
+   <hgroup>
+      <h2>Hello <%= @cmc_platform.name %> User!</h2>
+      <h3>You&rsquo;re using <%= @cmc_browser.name %>, Winning!</h3>
+   </hgroup>
+   <p class="update">However, the new Firefox is out now! <a href="http://www.mozilla.org/en-US/">Get it here</a></p>
+</section>
+<section id="how_to_clear">
+   <div class="sleeve">
+      <h2>Here&rsquo;s how you clear your cache for &hellip;</h2>
+      <section id="your_headers">
+         <header class="browser">
+            <img src="/assets/img/browsers/<%= @cmc_browser.slug %>.png" alt=""/>
+            <h3><span>Your browser, </span><%= @cmc_browser.name %></h3>
+            <a href="#your_browser" class="skip">Skip to your Browser instructions</a>
+            <p class="view"><a href="#">View User Agent String</a></p>
+         </header>
+         <header class="os">
+            <img src="/assets/img/os/mac.png" alt=""/>
+            <h3><span>Your Operating System, </span><%= @cmc_platform.name %></h3>
+            <a href="#your_os" class="skip">Skip to your Operating System instructions</a>
+         </header>
+      </section>
+      <section class="how_tos">
+         <section id="your_browser" class="how_to">
+            <%= @cmc_browser.howto %>
+         </section>
+         <section id="your_os" class="how_to">
+            <%= @cmc_platform.howto %>
+         </section>
+      </section>
+   </div>
+</section>

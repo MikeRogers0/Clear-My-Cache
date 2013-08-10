@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ClearMyCache</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title>Clear My Cache</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= canonical_link_tag %>
+
 </head>
-<body>
+<body id="home" class="">
 
-<%= yield %>
+	<header id="mast">
+		<div class="sleeve">
+			<h1><a href="/" id="logo"><span>Clear My Cache</span></a></h1>
+		</div>
+	</header>
 
+	<%= yield %>
+
+	<footer id="footer">
+		<img src="/assets/img/bgs/chrome.png" alt="Chrome" id="browser_image"/>
+		<div class="sleeve">
+			<p>Clear My Cache is a free service brought to you by <a href="http://twitter.com/MikeRogers0/">Mike</a>, <a href="http://www.twitter.com/de/">Dan</a>, <a href="http://twitter.com/Lletnek/">Tom</a> &amp; <a href="http://twitter.com/HarryWiseman/">Harry</a>.</p>
+			<small>All logos are copyright of their respective owners. Clear My Cache accept no liability for any damages or losses incurred while following the advice on this website.</small>
+		</div>
+	</footer>
 </body>
 </html>

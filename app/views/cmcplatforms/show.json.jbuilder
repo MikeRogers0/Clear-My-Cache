@@ -1,1 +1,1 @@
-json.extract! @cmcplatform, :name, :slug, :version, :howto, :created_at, :updated_at
+json.extract! @cmcplatform, :name, :slug, :howto, :created_at, :updated_at

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130728182817) do
+ActiveRecord::Schema.define(version: 20130810205718) do
 
   create_table "cmcbrowsers", force: true do |t|
     t.string   "name"
@@ -23,10 +23,11 @@ ActiveRecord::Schema.define(version: 20130728182817) do
     t.datetime "updated_at"
   end
 
+  add_index "cmcbrowsers", ["cmcplatform_id"], name: "index_cmcbrowsers_on_cmcplatform_id"
+
   create_table "cmcplatforms", force: true do |t|
     t.string   "name"
     t.string   "slug"
-    t.integer  "version"
     t.text     "howto"
     t.datetime "created_at"
     t.datetime "updated_at"

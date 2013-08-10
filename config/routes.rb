@@ -1,5 +1,6 @@
 ClearMyCache::Application.routes.draw do
 
+  devise_for :users
   resources :cmcbrowsers
   resources :cmcplatforms
 

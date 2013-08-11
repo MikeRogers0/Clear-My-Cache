@@ -1,7 +1,7 @@
 <section id="what_am_i">
    <hgroup>
-      <h2>Hello <%= @cmc_platform.name %> User!</h2>
-      <h3>You&rsquo;re using <%= @cmc_browser.name %>, Winning!</h3>
+      <h2>Hello <%= browser.platform %> User!</h2>
+      <h3>You&rsquo;re using <%= browser.name %>, Winning!</h3>
    </hgroup>
    <p class="update">However, the new Firefox is out now! <a href="http://www.mozilla.org/en-US/">Get it here</a></p>
 </section>
@@ -16,7 +16,7 @@
             <p class="view"><a href="#">View User Agent String</a></p>
          </header>
          <header class="os">
-            <img src="/assets/img/os/mac.png" alt=""/>
+            <img src="/assets/img/os/<%= @cmc_platform.slug %>.png" alt=""/>
             <h3><span>Your Operating System, </span><%= @cmc_platform.name %></h3>
             <a href="#your_os" class="skip">Skip to your Operating System instructions</a>
          </header>
@@ -31,3 +31,5 @@
       </section>
    </div>
 </section>
+
+<img src="/assets/img/bgs/<%= @cmc_browser.slug %>.png" alt="<%= @cmc_browser.name %>" id="browser_image"/>

@@ -9,7 +9,7 @@ class CmcinstructionController < ApplicationController
 
   def display
   	@cmc_browser = Cmcbrowser.where("slug = :slug", {slug: params[:cmcbrowser_slug]}).order("ABS(version - #{params[:cmcbrowser_version]} ) ASC").limit(1).first;
-    @cmc_platform = Cmcplatform.where("slug = :slug OR slug = 'all'", {slug: params[:cmcplatform_slug]}).limit(1).first;
+    @cmc_platform = Cmcplatform.where("slug = :slug", {slug: params[:cmcplatform_slug]}).limit(1).first;
 
     if @cmc_browser.nil? or @cmc_platform.nil?
       render :file => "public/404.html",  :status => 404

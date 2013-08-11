@@ -55,7 +55,7 @@ a:hover, a:focus { text-decoration:underline; }
 .opera #logo { background-color:#D72127; }
 
 /* Footer */
-	#browser_image { margin:0 auto; padding:80px 0 0; display:block; }
+#browser_image { margin:0 auto; padding:80px 0 0; display:block; }
 #footer .sleeve { background:#163A67; text-align:center; color:#FFF; padding:15px 0 0; }
 #footer .sleeve a { color:#FFF; }
 #footer .sleeve p { font-size:1.3em; line-height:22px; margin:0; }
@@ -67,6 +67,9 @@ a:hover, a:focus { text-decoration:underline; }
 .chrome #footer .sleeve { background:#7AAFDC; }
 .safari #footer .sleeve { background:#58595B; }
 .opera #footer .sleeve { background:#A4181B; }
+
+/* content */
+#content { width:820px; margin:30px auto; padding:0 0 3px; font:1.6em/1 Georgia, "Times New Roman", serif;  }
 
 /* What am I ??? */
 #what_am_i { width:820px; margin:0 auto; padding:0 0 35px; background:url(/assets/img/dot.png) repeat-x 0 100%; text-align:center; }

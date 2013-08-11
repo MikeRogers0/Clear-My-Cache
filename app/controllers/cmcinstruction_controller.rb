@@ -22,4 +22,12 @@ class CmcinstructionController < ApplicationController
       )
     end
   end
+
+  def display_all
+
+  end
+
+  def contribute
+
+  end
 end

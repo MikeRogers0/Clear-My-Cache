@@ -5,8 +5,8 @@ ClearMyCache::Application.routes.draw do
   #resources :cmcplatforms
 
   root 'cmcinstruction#index'
-  get 'all_supported_browsers' => 'cmcinstruction#display_all', :as => 'display_all'
-  get 'contribute' => 'cmcinstruction#contribute', :as => 'contribute'
+  #get 'all_supported_browsers' => 'cmcinstruction#display_all', :as => 'display_all'
+  #get 'contribute' => 'cmcinstruction#contribute', :as => 'contribute'
   get ':cmcplatform_slug/:cmcplatform_version/:cmcbrowser_slug/:cmcbrowser_version' => 'cmcinstruction#display', :as => 'display'
 
 

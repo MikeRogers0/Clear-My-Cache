@@ -20,6 +20,8 @@ class CmcinstructionController < ApplicationController
         :cmcbrowser_slug => @cmc_browser.slug, 
         :cmcbrowser_version => @cmc_browser.version,
       )
+
+      @body_class = @cmc_platform.slug + " " + @cmc_browser.slug;
     end
   end
 

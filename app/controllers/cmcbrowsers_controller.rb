@@ -1,6 +1,8 @@
 class CmcbrowsersController < ApplicationController
   before_action :set_cmcbrowser, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!
+
   # GET /cmcbrowsers
   # GET /cmcbrowsers.json
   def index

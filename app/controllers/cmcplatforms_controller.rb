@@ -1,6 +1,8 @@
 class CmcplatformsController < ApplicationController
   before_action :set_cmcplatform, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!
+
   # GET /cmcplatforms
   # GET /cmcplatforms.json
   def index

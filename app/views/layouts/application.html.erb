@@ -16,11 +16,11 @@
 		</div>
 	</header>
 
-	<% if notice %>
-		<p class="notice"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-		<p class="alert"><%= alert %></p>
+	<% if notice || alert %>
+		<div class="content">
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+		</div>
 	<% end %>
 
 	<%= yield %>

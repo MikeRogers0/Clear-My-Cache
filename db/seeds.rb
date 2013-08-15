@@ -251,8 +251,8 @@ Cmcbrowser.create([
 		cmcplatform_id: 1,
 	},
 	{
-		name: 'IE',
-		slug: 'ie',
+		name: 'Internet Explorer',
+		slug: 'internet-explorer',
 		version: '6',
 		howto: '<ul>
 	<li class="step">
@@ -295,8 +295,8 @@ Cmcbrowser.create([
 		cmcplatform_id: 2,
 	},
 	{
-		name: 'IE',
-		slug: 'ie',
+		name: 'Internet Explorer',
+		slug: 'internet-explorer',
 		version: '1',
 		howto: '<ul>
 	<li class="step">

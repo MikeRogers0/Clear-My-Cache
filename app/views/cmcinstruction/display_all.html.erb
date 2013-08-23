@@ -4,14 +4,25 @@
 		<div class="col-6">
 			<h2>Browsers</h2>
 			<ul>
-				<li><a href="">Chrome 28, Windows</a></li>
+				<% @cmc_browsers.each do |cmc_browser| %>
+				<li><%= link_to display_path(:cmcplatform_slug => cmc_browser.cmcplatform.slug, :cmcplatform_version => "1", :cmcbrowser_slug => cmc_browser.slug, :cmcbrowser_version => cmc_browser.version) do %>
+						<%= cmc_browser.name %> <%= cmc_browser.version %>
+						<% if cmc_browser.cmcplatform.slug != 'all'  %>, <%= cmc_browser.cmcplatform.name %> <% end %>
+					<% end %>
+				</li>
+				<% end %>
 			</ul>
 		</div>
 
 		<div class="col-6">
 			<h2>Platforms</h2>
 			<ul>
-				<li><a href="">Windows</a></li>
+				<% @cmc_platforms.each do |cmc_platform| %>
+				<li><%= link_to display_path(:cmcplatform_slug => cmc_platform.slug, :cmcplatform_version => "1", :cmcbrowser_slug => 'chrome', :cmcbrowser_version => '1') do %>
+						<%= cmc_platform.name %>
+					<% end %>
+				</li>
+				<% end %>
 			</ul>
 		</div>
 	</div>

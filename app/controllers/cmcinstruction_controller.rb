@@ -10,6 +10,11 @@ class CmcinstructionController < ApplicationController
   end
 
   def display
+    # Override the default all slug with mac
+    if params[:cmcplatform_slug]
+      params[:cmcplatform_slug] = 'mac'
+    end
+
   	@cmc_browser = Cmcbrowser.where("slug = :slug", {slug: params[:cmcbrowser_slug]}).order("ABS((#{params[:cmcbrowser_version]} - version)) DESC").limit(1).first;
     @cmc_platform = Cmcplatform.where("slug = :slug", {slug: params[:cmcplatform_slug]}).limit(1).first;
 
@@ -28,7 +33,8 @@ class CmcinstructionController < ApplicationController
   end
 
   def display_all
-
+    @cmc_browsers = Cmcbrowser.all()
+    @cmc_platforms = Cmcplatform.where("slug != :slug", {slug: 'all'})
   end
 
   def contribute

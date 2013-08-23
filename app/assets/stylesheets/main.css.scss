@@ -1,3 +1,5 @@
+$screen-md: "720px";
+
 html { font-size:100%; } /* Fix font size for IE */
 body { background:url(/assets/img/bg.png) repeat-x; margin:0; padding:0; color:#333; font:.625em/20px Helvetica, Arial, sans-serif; }
 
@@ -69,7 +71,32 @@ a:hover, a:focus { text-decoration:underline; }
 .opera #footer .sleeve { background:#A4181B; }
 
 /* content */
-.content { width:820px; margin:30px auto; padding:0 0 3px; font:1.6em/1 Georgia, "Times New Roman", serif;  }
+.content { width:820px; margin:30px auto; padding:0 0 3px; font:1.4em/1 Georgia, "Times New Roman", serif;  
+	h1, h2{
+		font: normal 3em/1 BebasNeue, Impact, Helvetica, Arial, sans-serif;
+		text-transform: uppercase;
+		padding: 0 0 16px;
+		text-align:center;
+	}
+	h2{
+		font-size: 2em;
+		text-align:left;
+	}
+}
+
+.row{
+	overflow:hidden;
+	.col-6{
+		width: 100%;
+		float: left;
+	}
+
+	@media screen and (min-width: $screen-md) {
+		.col-6{
+			width: 50%;
+		}
+	}
+}
 
 /* What am I ??? */
 #what_am_i { width:820px; margin:0 auto; padding:0 0 35px; background:url(/assets/img/dot.png) repeat-x 0 100%; text-align:center; }

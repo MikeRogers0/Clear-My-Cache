@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clear My Cache</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application_header" %>
+  <%= csrf_meta_tags %>
+  <%= canonical_link_tag %>
+
+</head>
+<body id="home" class="<%= body_class %>">
+
+	<header id="mast">
+		<div class="sleeve">
+			<h1><a href="/" id="logo"><span>Clear My Cache</span></a></h1>
+		</div>
+	</header>
+
+	<% if notice || alert %>
+		<div class="content">
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+		</div>
+	<% end %>

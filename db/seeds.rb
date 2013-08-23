@@ -253,7 +253,7 @@ Cmcbrowser.create([
 	{
 		name: 'Internet Explorer',
 		slug: 'internet-explorer',
-		version: '6',
+		version: '7',
 		howto: '<ul>
 	<li class="step">
 		<h4>Step 1.</h4>
@@ -297,7 +297,7 @@ Cmcbrowser.create([
 	{
 		name: 'Internet Explorer',
 		slug: 'internet-explorer',
-		version: '1',
+		version: '6',
 		howto: '<ul>
 	<li class="step">
 		<h4>Step 1.</h4>

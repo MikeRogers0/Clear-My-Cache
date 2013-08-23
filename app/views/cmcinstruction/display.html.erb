@@ -10,13 +10,13 @@
       <h2>Here&rsquo;s how you clear your cache for &hellip;</h2>
       <section id="your_headers">
          <header class="browser">
-            <img src="/assets/img/browsers/<%= @cmc_browser.slug %>.png" alt=""/>
+            <img src="/assets/img/browsers/<%= @cmc_browser.slug %>.png" alt="<%= @cmc_browser.name %> Icon"/>
             <h3><span>Your browser, </span><%= @cmc_browser.name %></h3>
             <a href="#your_browser" class="skip">Skip to your Browser instructions</a>
             <p class="view"><a href="#">View User Agent String</a></p>
          </header>
          <header class="os">
-            <img src="/assets/img/os/<%= @cmc_platform.slug %>.png" alt=""/>
+            <img src="/assets/img/os/<%= @cmc_platform.slug %>.png" alt="<%= @cmc_platform.name %> Icon"/>
             <h3><span>Your Operating System, </span><%= @cmc_platform.name %></h3>
             <a href="#your_os" class="skip">Skip to your Operating System instructions</a>
          </header>

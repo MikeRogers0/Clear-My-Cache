@@ -1,4 +1,6 @@
 class CmcinstructionController < ApplicationController
+  layout "application", except: [:index, :display_all, :contribute]
+
   def index
     redirect_to :action => 'display', 
   					:cmcplatform_slug => browser.platform.downcase, 
@@ -8,7 +10,7 @@ class CmcinstructionController < ApplicationController
   end
 
   def display
-  	@cmc_browser = Cmcbrowser.where("slug = :slug", {slug: params[:cmcbrowser_slug]}).order("ABS(version - #{params[:cmcbrowser_version]} ) ASC").limit(1).first;
+  	@cmc_browser = Cmcbrowser.where("slug = :slug", {slug: params[:cmcbrowser_slug]}).order("ABS((#{params[:cmcbrowser_version]} - version)) DESC").limit(1).first;
     @cmc_platform = Cmcplatform.where("slug = :slug", {slug: params[:cmcplatform_slug]}).limit(1).first;
 
     if @cmc_browser.nil? or @cmc_platform.nil?

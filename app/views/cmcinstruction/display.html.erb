@@ -1,9 +1,17 @@
 <section id="what_am_i">
    <hgroup>
       <h2>Hello <%= browser.platform %> User!</h2>
-      <h3>You&rsquo;re using <%= browser.name %>, Winning!</h3>
+      <% if browser.name == 'Internet Explorer' %>
+         <h3>You&rsquo;re using <%= browser.name %>, get in!</h3>
+      <% elsif browser.name == 'Chrome' %> 
+         <h3>You&rsquo;re using <%= browser.name %>, check you out!</h3>
+      <% else %>
+         <h3>You&rsquo;re using <%= browser.name %>, Winning!</h3>
+      <% end %>
    </hgroup>
+   <% if browser.name == 'Internet Explorer' %>
    <p class="update">However, the new Firefox is out now! <a href="http://www.mozilla.org/en-US/">Get it here</a></p>
+   <% end %>
 </section>
 <section id="how_to_clear">
    <div class="sleeve">

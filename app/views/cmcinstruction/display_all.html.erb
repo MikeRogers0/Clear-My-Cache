@@ -18,10 +18,13 @@
 			<h2>Platforms</h2>
 			<ul>
 				<% @cmc_platforms.each do |cmc_platform| %>
-				<li><%= link_to display_path(:cmcplatform_slug => cmc_platform.slug, :cmcplatform_version => "1", :cmcbrowser_slug => 'chrome', :cmcbrowser_version => '1') do %>
+					<li><% if !cmc_platform.cmcbrowsers.empty? %>
+						<%= link_to display_path(:cmcplatform_slug => cmc_platform.slug, :cmcplatform_version => "1", :cmcbrowser_slug => cmc_platform.cmcbrowsers[0].slug, :cmcbrowser_version => cmc_platform.cmcbrowsers[0].version) do %>
+							<%= cmc_platform.name %>
+						<% end %>
+					<% else %>
 						<%= cmc_platform.name %>
-					<% end %>
-				</li>
+					<% end %></li>
 				<% end %>
 			</ul>
 		</div>

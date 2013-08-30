@@ -114,7 +114,7 @@ a:hover, a:focus { text-decoration:underline; }
 #your_headers:after { content:"."; display:block; clear:both; visibility:hidden; height:0; }
 #your_headers header { margin:9px 0 11px; padding:0 7px; float:left; width:396px; }
 #your_headers img { float:left; margin-right:10px; }
-#your_headers h3 { font:2.5em/1 BebasNeue, Impact, Helvetica, Arial, sans-serif; padding:3px 0 2px; }
+#your_headers h3 { font:2.5em/1 BebasNeue, Impact, Helvetica, Arial, sans-serif; padding:13px 0 2px 0;  }
 #your_headers h3 span { position:absolute; left:-9999px; }
 #your_headers .view { font-size:1.1em; line-height:1; }
 #your_headers .view a { font-weight:normal; }

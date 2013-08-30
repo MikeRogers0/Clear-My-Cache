@@ -1,7 +1,14 @@
 	<footer id="footer">
 		<div class="sleeve">
 			<p>Clear My Cache is a free service brought to you by <a href="http://twitter.com/MikeRogers0/">Mike</a>, <a href="http://www.twitter.com/de/">Dan</a>, <a href="http://twitter.com/Lletnek/">Tom</a> &amp; <a href="http://twitter.com/HarryWiseman/">Harry</a>.</p>
-			<small><%= link_to 'All supported Browsers', display_all_path  %> | <%= link_to 'Contribute', contribute_path %><br />
+			<small><%= link_to 'All supported setups', display_all_path  %> | 
+				<% if user_signed_in? %>
+					<%= link_to 'Your Account', edit_user_registration_path %> | 
+					<%= link_to 'Log Out', destroy_user_session_path, :method => :delete  %>
+				<% else %>
+					<%= link_to 'Sign In', new_user_session_path %> / <%= link_to 'Sign Up to Contribute', new_user_registration_path %>
+				<% end %>
+				<br />
 				All logos are copyright of their respective owners. Clear My Cache accept no liability for any damages or losses incurred while following the advice on this website.</small>
 		</div>
 	</footer>

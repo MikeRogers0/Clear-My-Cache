@@ -9,9 +9,16 @@
 						<%= cmc_browser.name %> <%= cmc_browser.version %>
 						<% if cmc_browser.cmcplatform.slug != 'all'  %>, <%= cmc_browser.cmcplatform.name %> <% end %>
 					<% end %>
+
+					<% if user_signed_in? %>
+						<small>(<%= link_to 'Edit', edit_cmcbrowser_path(:id => cmc_browser.id) %>)</small>
+					<% end %>
 				</li>
 				<% end %>
 			</ul>
+
+			<br /><br />
+			<%= link_to_if(user_signed_in?, 'Add new browser', new_cmcbrowser_path){} %>
 		</div>
 
 		<div class="col-6">
@@ -24,8 +31,16 @@
 						<% end %>
 					<% else %>
 						<%= cmc_platform.name %>
-					<% end %></li>
+					<% end %>
+
+					<% if user_signed_in? %>
+						<small>(<%= link_to 'Edit', edit_cmcplatform_path(:id => cmc_platform.id) %>)</small>
+					<% end %>
+				</li>
 				<% end %>
+
+				<br /><br />
+				<%= link_to_if(user_signed_in?, 'Add new platform', new_cmcplatform_path){} %>
 			</ul>
 		</div>
 	</div>

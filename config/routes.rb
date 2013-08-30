@@ -1,8 +1,8 @@
 ClearMyCache::Application.routes.draw do
 
   devise_for :users
-  #resources :cmcbrowsers
-  #resources :cmcplatforms
+  resources :cmcbrowsers
+  resources :cmcplatforms
 
   root 'cmcinstruction#index'
   get 'all_supported_browsers' => 'cmcinstruction#display_all', :as => 'display_all'

@@ -104,7 +104,7 @@ Cmcbrowser.create([
 	{
 		name: 'Chrome',
 		slug: 'chrome',
-		version: '1',
+		version: '22',
 		howto: '<ul>
 	<li class="step">
 		<h4>Step 1.</h4>
@@ -141,7 +141,7 @@ Cmcbrowser.create([
 	{
 		name: 'Firefox',
 		slug: 'firefox',
-		version: '1',
+		version: '18',
 		howto: '<ul>
 	<li class="step">
 		<h4>Step 1.</h4>
@@ -179,7 +179,7 @@ Cmcbrowser.create([
 	{
 		name: 'Opera',
 		slug: 'opera',
-		version: '1',
+		version: '16',
 		howto: '<ul>
 	<li class="step">
 		<h4>Step 1.</h4>
@@ -224,7 +224,7 @@ Cmcbrowser.create([
 	{
 		name: 'Safari',
 		slug: 'safari',
-		version: '1',
+		version: '5',
 		howto: '<ul>
 	<li class="step">
 		<h4>Step 1.</h4>

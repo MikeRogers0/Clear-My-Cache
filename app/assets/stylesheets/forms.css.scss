@@ -1,0 +1,16 @@
+.simple_form{
+	margin-bottom: 20px;
+
+	.input{
+		margin-bottom:10px;
+	}
+	label{
+		&:after{
+			content: ':'
+		}
+	}
+
+	input,textarea,select{
+		display:block;
+	}
+}

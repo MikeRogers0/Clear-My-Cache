@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  slug: MyString
-  version: 1
+  name: Mac
+  slug: mac
   howto: MyText
 
 two:
-  name: MyString
-  slug: MyString
-  version: 1
+  name: Windows
+  slug: windows
   howto: MyText

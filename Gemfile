@@ -23,6 +23,10 @@ gem 'browser'
 # Devise - The user bits section.
 gem 'devise'
 
+# The shoulda gems for easier tests
+gem 'shoulda'
+gem 'shoulda-context'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
